@@ -47,3 +47,9 @@ Kibana is a free and open user interface that lets you visualize your Elasticsea
 The Elastic Stack is basically the ELK Stack plus Beats. Beats are lightweight data shippers that you install as agents on your servers to send specific types of operational data to Elasticsearch. Beats are the data collection component of the Elastic Stack and are responsible for collecting data from your servers and sending it to Elasticsearch.
 
 ![Beats diagram](./docs/beats.png)
+
+## Running Locally
+
+1. Clone this repository
+2. Run `docker-compose up -d`
+3. Access Kibana at http://localhost:5601
