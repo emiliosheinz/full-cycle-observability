@@ -108,6 +108,28 @@ Metricbeat is configured as a service in the `docker-compose` file as follows:
       - observability
 ```
 
+### Heartbeat
+
+[Heartbeat](https://www.elastic.co/pt/beats/heartbeat) is a lightweight shipper that you can install on your servers to periodically check the status of your services and determine whether they are available. It is one of the most common ways to monitor services and health check them.
+
+Heartbeat is configured as a service in the `docker-compose` file as follows:
+
+```yaml
+  heartbeat:
+    image: docker.elastic.co/beats/heartbeat:7.13.0
+    container_name: heartbeat
+    volumes:
+      - ./beats/heart/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml
+    environment:
+      - setup.kibana.host=kibana:5601
+    networks:
+      - observability
+```
+
+And results in the following dashboard in the Uptime section of Kibana:
+
+![Heartbeat dashboard](./docs/heartbeat.png)
+
 ## Running Locally
 
 1. Clone this repository
