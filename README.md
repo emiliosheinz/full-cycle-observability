@@ -130,8 +130,36 @@ And results in the following dashboard in the Uptime section of Kibana:
 
 ![Heartbeat dashboard](./docs/heartbeat.png)
 
+### APM Server
+
+The Elastic [APM Server](https://www.elastic.co/pt/apm) is a key component within the Elastic Stack's Application Performance Monitoring (APM) solution. It facilitates the collection, processing, and storage of performance-related data from applications. APM agents integrated into application code or runtime capture metrics, errors, and transactions, which are then sent to the APM Server. The server processes and indexes this data, making it searchable and accessible through Elasticsearch. The stored information can be visualized and analyzed using Kibana, enabling developers and operators to monitor and troubleshoot application performance in real-time.
+
+The APM Server is configured as a service in the `docker-compose` file as follows:
+
+```yaml
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:7.13.0
+    container_name: apm-server
+    environment:
+      - ELASTIC_APM_SERVER_URL=http://apm-server:8200
+      - ELASTIC_APM_SECRET_TOKEN=changeme
+      - ELASTIC_APM_SERVICE_NAME=apm-server
+      - ELASTIC_APM_LOG_LEVEL=debug
+      - ELASTIC_APM_TRANSACTION_SAMPLE_RATE=1
+    volumes:
+      - ./apm-server/apm-server.yml:/usr/share/apm-server/apm-server.yml
+    ports:
+      - 8200:8200
+    networks:
+      - observability
+```
+
+#### RUM
+
+Real User Monitoring is a type of APM that allows you to collect data from your frontend applications and understand how they are performing. It is a great way to understand how users are experiencing the application and how you can improve their experience.
+
 ## Running Locally
 
 1. Clone this repository
-2. Run `docker-compose up -d`
-3. Access Kibana at http://localhost:5601
+1. Run `./setup.sh`
+1. Access Kibana at http://localhost:5601
