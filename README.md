@@ -154,6 +154,10 @@ The APM Server is configured as a service in the `docker-compose` file as follow
       - observability
 ```
 
+And results in the following dashboard in the APM section of Kibana:
+
+![APM dashboard](./docs/apm.png)
+
 #### RUM
 
 Real User Monitoring is a type of APM that allows you to collect data from your frontend applications and understand how they are performing. It is a great way to understand how users are experiencing the application and how you can improve their experience.
