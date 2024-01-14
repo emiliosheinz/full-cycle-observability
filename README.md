@@ -162,6 +162,12 @@ And results in the following dashboard in the APM section of Kibana:
 
 Real User Monitoring is a type of APM that allows you to collect data from your frontend applications and understand how they are performing. It is a great way to understand how users are experiencing the application and how you can improve their experience.
 
+### Filebeat
+
+[Filebeat](https://www.elastic.co/pt/beats/filebeat) is a lightweight shipper that you can install on your servers to periodically collect log files from the operating system and from services running on the server. It is one of the most common ways to collect logs from servers.
+
+
+
 ## Running Locally
 
 1. Clone this repository
