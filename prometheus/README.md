@@ -61,3 +61,15 @@ Prometheus has four metric types:
 - **Histogram:** A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
 
 - **Summary:** Similar to a histogram, a summary samples observations (usually things like request durations and response sizes). While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
+
+## PromQL
+
+Prometheus provides a functional query language called PromQL (Prometheus Query Language) that lets the user select and aggregate time series data in real-time. It is a very powerful language that allows you to query and aggregate metrics in many different ways and it is the main way to query and visualize metrics in Prometheus.
+
+Example of a PromQL query:
+
+```bash
+http_requests_total{job="my-service", method="GET"}
+rate(http_requests_total[5m])
+http_requests_total{status="500"}
+```
