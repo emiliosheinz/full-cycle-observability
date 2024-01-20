@@ -45,3 +45,19 @@ The Alertmanager is responsible for handling alerts sent by Prometheus. It can g
 ### Grafana
 
 Grafana is an open-source visualization tool that can be used to query, visualize, and alert on metrics collected by Prometheus. It is a very powerful tool that can be used to create dashboards and alerts for monitoring systems.
+
+## Metrics
+
+Prometheus uses a multi-dimensional data model with time series data identified by metric name and key/value pairs. This data model is very flexible and allows you to create metrics with multiple dimensions, which is very useful for monitoring systems.
+
+### Metric types
+
+Prometheus has four metric types:
+
+- **Counter:** A counter is a cumulative metric that represents a single numerical value that only ever goes up. It can be used to represent the number of requests served, tasks completed, or errors.
+
+- **Gauge:** A gauge is a metric that represents a single numerical value that can arbitrarily go up and down. Gauges are typically used for measured values like temperatures or current memory usage, but also "counts" that can go up and down, like the number of concurrent requests.
+
+- **Histogram:** A histogram samples observations (usually things like request durations or response sizes) and counts them in configurable buckets. It also provides a sum of all observed values.
+
+- **Summary:** Similar to a histogram, a summary samples observations (usually things like request durations and response sizes). While it also provides a total count of observations and a sum of all observed values, it calculates configurable quantiles over a sliding time window.
