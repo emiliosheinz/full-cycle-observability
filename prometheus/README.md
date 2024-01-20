@@ -19,3 +19,13 @@ This diagram illustrates the architecture of Prometheus and some of its ecosyste
 ![Prometheus architecture](./docs/prometheus-architecture.png)
 
 Prometheus scrapes metrics from instrumented jobs, either directly or via an intermediary push gateway for short-lived jobs. It stores all scraped samples locally and runs rules over this data to either aggregate and record new time series from existing data or generate alerts. Grafana or other API consumers can be used to visualize the collected data.
+
+### Prometheus Server
+
+The Prometheus server is the core piece of Prometheus architecture. It is responsible for collecting metrics from the configured jobs, processing and storing them. It also provides a web interface where you can run queries and visualize the collected data.
+
+- **TSDB (Time Series Database):** Is the storage layer of Prometheus where a custom database written on top of LevelDB is used for storing and querying time series data, which makes it very efficient to store and query large amounts of data.
+
+- **Retrieval:** The retrieval component is responsible for collecting and orchestrating metrics from the configured jobs and applying the configured rules to them.
+
+- **HTTP Server:** The HTTP server is responsible for serving the web interface and API for querying and visualizing the collected data.
