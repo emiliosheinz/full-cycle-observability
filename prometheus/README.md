@@ -73,3 +73,9 @@ http_requests_total{job="my-service", method="GET"}
 rate(http_requests_total[5m])
 http_requests_total{status="500"}
 ```
+
+## Running locally
+
+```bash
+docker-compose up -d
+```
