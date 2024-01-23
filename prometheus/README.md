@@ -76,4 +76,6 @@ http_requests_total{status="500"}
 
 ## Running locally
 
-Run `docker-compose up -d` and you should be able to access the Prometheus web interface at http://localhost:9090.
+Run `docker-compose up -d` and you should be able to access the the Grafana dashboard at http://localhost:3000 and login with the default credentials (admin/admin).
+
+![Grafana Dashboard](./docs/grafana-dashboard.png)
