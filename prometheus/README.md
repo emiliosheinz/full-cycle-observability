@@ -76,6 +76,10 @@ http_requests_total{status="500"}
 
 ## Running locally
 
+Run 
+
 ```bash
 docker-compose up -d
 ```
+
+And you should be able to access the Prometheus web interface at http://localhost:9090.
