@@ -4,4 +4,5 @@ WORKDIR /go/src
 ENV PATH="/go/bin:${PATH}"
 ENV CGO_ENABLED=0
 
-CMD ["tail", "-f", "/dev/null"]
+RUN go get github.com/githubnemo/CompileDaemon
+ENTRYPOINT CompileDaemon --build="go build main.go" --command="./main"
